@@ -1,0 +1,205 @@
+$paper-gradient: hsl(230, 89%, 65%);
+$scissors-gradient: hsl(40, 84%, 53%);
+$rock-gradient: hsl(349, 70%, 56%);
+$background-gradient: radial-gradient(
+  circle at top,
+  hsl(214, 47%, 23%),
+  hsl(237, 49%, 15%)
+);
+$dark-font: hsl(229, 25%, 31%);
+$light-font: #fff;
+$score-text: hsl(229, 64%, 46%);
+$border-color: hsl(217, 16%, 45%);
+$highlight-gradient: radial-gradient(
+  circle,
+  rgba(224, 255, 232, 0.15),
+  rgba(255, 255, 224, 0.15) 45%,
+  rgba(255, 255, 224, 0.08) 45%,
+  rgba(255, 255, 224, 0.08) 58%,
+  rgba(255, 255, 224, 0.05) 58%,
+  rgba(255, 255, 224, 0.05) 100%
+);
+$container-circle-ratio: 1.7; //also gap between circles
+$container-width: clamp(
+  100px * $container-circle-ratio,
+  30vw,
+  140px * $container-circle-ratio
+);
+$circle-width: clamp(
+  100px,
+  calc($container-width/$container-circle-ratio),
+  140px
+);
+$hand-circle-border: -15%;
+
+@mixin btn-reset {
+  display: block;
+  border: none;
+  background-color: transparent;
+}
+
+.hand-container {
+  // border: 1px solid red;
+
+  flex-shrink: 0;
+  position: relative;
+  width: $container-width;
+  height: $container-width;
+
+  // background-image: url("images/bg-triangle.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  margin: 5vw 0 80px;
+}
+
+.hand-container__background {
+  width: 100%;
+  height: 100%;
+}
+
+.hand-container__background > svg {
+  stroke-width: calc(45px - ($container-width * 0.09));
+}
+
+.hand-circle {
+  @include btn-reset;
+  position: absolute;
+  top: calc($circle-width / -2);
+  left: calc($circle-width / -2);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $circle-width;
+  height: $circle-width;
+  border-radius: 50%;
+  box-shadow: inset 0 5px rgba(0, 0, 0, 0.2);
+
+  background-color: $light-font;
+  transform: translateZ(1px);
+
+  transform-style: preserve-3d;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 45%;
+}
+
+.hand-circle--paper {
+  background-image: Url("images/icon-paper.svg");
+}
+
+.hand-circle--scissors {
+  border-color: $scissors-gradient;
+  background-image: Url("images/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: translate($container-width);
+}
+
+.hand-circle--rock {
+  border-color: $rock-gradient;
+  background-image: Url("images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: rotate(60deg) translate($container-width) rotate(-60deg);
+}
+
+.hand-circle__border {
+  //
+  // visibility: hidden;
+  //
+  position: absolute;
+  top: $hand-circle-border;
+  left: $hand-circle-border;
+  bottom: $hand-circle-border;
+  right: $hand-circle-border;
+  border-radius: 50%;
+  background-color: gray;
+  content: "";
+  transform: translateZ(-1px);
+  box-shadow: inset 0 -5px hsla(0, 0%, 0%, 0.25);
+}
+
+.hand-circle__border--paper {
+  background-color: $paper-gradient;
+}
+
+.hand-circle__border--scissors {
+  background-color: $scissors-gradient;
+}
+
+.hand-circle__border--rock {
+  background-color: $rock-gradient;
+  // transform: rotate(-60deg) translateZ(-1px);
+}
+
+.duel-container {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  gap: clamp(80px, 20%, 150px);
+}
+
+.duel-container .hand-circle {
+  position: relative;
+  inset: 0;
+  transform: scale(1.2);
+  flex-shrink: 0;
+}
+
+.hand-circle__label {
+  position: relative;
+  top: 100%;
+  color: $light-font;
+  font-size: 1.2em;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+
+.concealed {
+  background-color: hsla(237, 49%, 15%, 50%);
+  background-image: none;
+  box-shadow: none;
+}
+
+.concealed .hand-circle__border {
+  visibility: hidden;
+}
+
+.highlight::before {
+  animation: highlight 1.5s ease-out infinite both;
+  position: absolute;
+  inset: 0 0 0 0;
+  content: "";
+  background-image: $highlight-gradient;
+  border-radius: 50%;
+  transform: translateZ(-1px);
+  transform-style: preserve-3d;
+}
+
+@media only screen and (min-width: 1024px) {
+  .hand-circle__label {
+    top: initial;
+    bottom: 100%;
+    font-size: 1.4em;
+  }
+}
+
+@keyframes highlight {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
