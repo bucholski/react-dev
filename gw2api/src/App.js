@@ -13,16 +13,41 @@ function App() {
     return JSON.parse(localStorage[key]);
   }
 
+  async function fillLocalStorage(itemsNumber) {
+    localStorage.itemList = await fetchAllItems(itemsNumber);
+    setLoading(false);
+  }
+
+  async function fetchAllItems(numberOfAllItems) {
+    let promises = [];
+    let temporary = [];
+    let numberOfPages = Math.ceil(numberOfAllItems / 200);
+    for (let i = 0; i <= numberOfPages; i++) {
+      promises.push(
+        fetch(`https://api.guildwars2.com/v2/items?page=${i}&page_size=200`)
+      );
+    }
+    await Promise.all(promises)
+      .then((responses) => responses.map((response) => response.json()))
+      .then((promisePack) => Promise.all(promisePack))
+      .then((data) =>
+        data.forEach((arr) =>
+          arr.forEach((obj) => temporary.push({ id: obj.id, name: obj.name }))
+        )
+      )
+      .catch((error) => console.error(error));
+    return JSON.stringify(temporary);
+  }
+
   function compareWithLocalStorage() {
     fetch("https://api.guildwars2.com/v2/items")
       .then((res) => res.json())
       .then((array) => {
-        // console.log(array.length + " vs " + lsJSON().length)
         if (
           !localStorage.itemList ||
           array.length !== getFromStorage("itemList").length
         ) {
-          fetchAllItems(array.length);
+          fillLocalStorage(array.length);
           console.log("repopulate");
         } else {
           setLoading(false);
@@ -32,28 +57,29 @@ function App() {
       .catch((error) => console.error("Error in compare: ", error));
   }
 
-  async function fetchAllItems(numberOfAllItems) {
-    let temporary = [];
-    let numberOfPages = Math.ceil(numberOfAllItems / 200);
-    console.log(numberOfPages);
-    for (let i = 0; i <= numberOfPages; i++) {
-      await fetch(`https://api.guildwars2.com/v2/items?page=${i}&page_size=200`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-        })
-        .then((data) => {
-          data.forEach((obj) => {
-            temporary.push({ id: obj.id, name: obj.name });
-          });
-        })
-        .then((localStorage.itemList = JSON.stringify(temporary)))
-        .catch((error) => console.error(error));
-    }
+  // async function fetchAllItems(numberOfAllItems) {
+  //   let temporary = [];
+  //   let numberOfPages = Math.ceil(numberOfAllItems / 200);
+  //   console.log(numberOfPages);
+  //   for (let i = 0; i <= numberOfPages; i++) {
+  //     await fetch(`https://api.guildwars2.com/v2/items?page=${i}&page_size=200`)
+  //       .then((res) => {
+  //         if (res.ok) {
+  //           return res.json();
+  //         }
+  //       })
+  //       .then((data) => {
+  //         console.log(data);
+  //         data.forEach((obj) => {
+  //           temporary.push({ id: obj.id, name: obj.name });
+  //         });
+  //       })
+  //       .then((localStorage.itemList = JSON.stringify(temporary)))
+  //       .catch((error) => console.error(error));
+  //   }
 
-    await setLoading(false);
-  }
+  //   setLoading(false);
+  // }
 
   function fetchListOfCommerce() {
     fetch("https://api.guildwars2.com/v2/commerce/listings")
