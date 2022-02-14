@@ -40,3 +40,26 @@ form * {
   margin: 10px;
   width: 300px;
 }
+
+.result-item {
+  padding: 2px;
+  margin: 2px;
+  margin-bottom: 10px;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+
+  list-style: none;
+  width: 300px;
+  cursor: pointer;
+}
+
+.result-item > div {
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+
+td {
+  border: 1px solid #ddd;
+  text-align: center;
+  min-width: 100px;
+}
