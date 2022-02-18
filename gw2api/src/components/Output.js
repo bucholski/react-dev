@@ -1,5 +1,22 @@
 import React, { createElement } from "react";
 
+function convertCurrency(amount) {
+  let gold = 0;
+  let silver = 0;
+  let copper = 0;
+  if (!amount) return 0;
+  if (amount >= 10000) {
+    gold = Math.floor(amount / 10000);
+    amount -= gold * 10000;
+  }
+  if (amount >= 100) {
+    silver = Math.floor(amount / 100);
+    amount -= silver * 100;
+  }
+  copper = amount;
+  return `${gold}g ${silver}s ${copper}c`;
+}
+
 function showInfo(e) {
   if (e.target.classList[0] === "result-item") {
     Promise.all([
@@ -14,7 +31,7 @@ function showInfo(e) {
       .then((data) => {
         if (!e.target.childElementCount) {
           let info = document.createElement("div");
-          console.log(data);
+          info.classList.add("table-container");
           info.innerHTML = `
             <table>
             <tr>
@@ -26,18 +43,22 @@ function showInfo(e) {
               <td>Sells</td>
             </tr>
             <tr>
-              <td><img src=${data[1].icon}></td>
+              <td><img width="64" height="64" src=${data[1].icon}></td>
               <td>${data[1].level}</td>
               <td>${data[1].rarity}</td>
               <td><a href='http://wiki.guildwars2.com/wiki/Special:Search?search=${encodeURIComponent(
                 data[1].chat_link
               )}'>${data[1].chat_link}</a></td>
-              <td>${data[0]?.buys?.length} buy listings starting at ${
+              <td>${
+                data[0]?.buys?.length
+              } buy listings starting at <span class="currency">${convertCurrency(
             data[0]?.buys[0]?.unit_price
-          }c</td>
-              <td>${data[0]?.sells?.length} sell listings starting at ${
-            data[0].sells[0]?.unit_price
-          }c</td>
+          )}</span></td>
+              <td>${
+                data[0]?.sells?.length
+              } sell listings starting at <span class="currency">${convertCurrency(
+            data[0]?.sells[0]?.unit_price
+          )}</span></td>
             </tr>
             <table>
             `;

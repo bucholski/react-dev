@@ -1,4 +1,3 @@
-import DebugScreen from "./components/DebugScreen";
 import SearchForm from "./components/SearchForm";
 import { useState, useEffect } from "react";
 import Output from "./components/Output";
@@ -48,10 +47,8 @@ function App() {
           array.length !== getFromStorage("itemList").length
         ) {
           fillLocalStorage(array.length);
-          console.log("repopulate");
         } else {
           setLoading(false);
-          console.log("all ready");
         }
       })
       .catch((error) => console.error("Error in compare: ", error));
@@ -97,17 +94,19 @@ function App() {
     compareWithLocalStorage();
   }, []);
 
-  if (loading) return "Loading";
+  if (loading)
+    return "Fetching 61.000 records, this usually takes up to 14 seconds.";
   // if (error) return "Error";
   return (
     <div className="App">
-      <SearchForm
-        listOfCommerce={listOfCommerce}
-        setOutput={setOutput}
-        getFromStorage={getFromStorage}
-      />
-      <Output output={output} />
-      <DebugScreen output={listOfCommerce} />
+      <div className="container">
+        <SearchForm
+          listOfCommerce={listOfCommerce}
+          setOutput={setOutput}
+          getFromStorage={getFromStorage}
+        />
+        <Output output={output} />
+      </div>
     </div>
   );
 }

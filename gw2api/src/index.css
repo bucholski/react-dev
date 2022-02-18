@@ -5,59 +5,88 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #222;
   color: #ddd;
-  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+.container {
+  padding: 1% 5% 0;
 }
 
-.debug {
-  margin: 100px auto;
-  width: 1000px;
-  height: 500px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  word-wrap: break-word;
-  overflow-y: scroll;
+ul {
+  padding: 0;
+}
+
+a,
+a:visited {
+  color: #45e0f5;
 }
 
 form {
   display: flex;
-  margin: 20px;
-  justify-content: center;
+  height: clamp(30px, 10vw, 60px);
+  max-width: 800px;
+  margin: 20px 0;
+  align-items: stretch;
+  gap: 5px;
 }
 
-form * {
-  margin: 0 5px;
+.search-text {
+  width: clamp(180px, 100% - (5px + 10vw), 600px);
+  height: 100%;
+  padding: 0 0.5rem;
+  margin: 0;
+  border: none;
+  font-size: clamp(20px, 7vw, 42px);
+  line-height: 1rem;
+  letter-spacing: -1px;
 }
 
-.item-button {
-  display: block;
-  margin: 10px;
-  width: 300px;
+.search-btn {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: clamp(30px, 10vw, 60px);
+  border: 3px solid #ddd;
+  background: url("../src/media/search-line.svg") no-repeat center;
 }
 
 .result-item {
+  width: min(100%, 680px);
   padding: 2px;
-  margin: 2px;
   margin-bottom: 10px;
-  border-top: 2px solid #ddd;
-  border-bottom: 2px solid #ddd;
+  border: 3px solid #ddd;
+  font-size: 1.3em;
   list-style: none;
-  width: 300px;
+  text-indent: 0.5em;
+  box-sizing: border-box;
+  overflow: auto;
   cursor: pointer;
 }
 
 .result-item > div {
-  margin-left: 1em;
-  font-size: 0.9em;
+  font-size: 0.7em;
+}
+
+td > img {
+  max-width: 64px;
 }
 
 td {
+  min-width: 64px;
   border: 1px solid #ddd;
   text-align: center;
-  min-width: 100px;
+  padding: 4px;
+}
+
+.currency {
+  display: block;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 320px) {
+  .search-btn {
+    background-size: 90%;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
