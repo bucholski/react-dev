@@ -1,6 +1,7 @@
 import SearchForm from "./components/SearchForm";
 import { useState, useEffect } from "react";
 import Output from "./components/Output";
+import Notice from "./components/Notice";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -97,6 +98,23 @@ function App() {
   if (loading)
     return "Fetching 61.000 records, this usually takes up to 14 seconds.";
   // if (error) return "Error";
+
+  let notice = (
+    <p className="notice-text">
+      This is a search tool for marketable Guild Wars 2 items.
+      <br /> If you are not familiar with the game, try searching for phrases
+      such as 'Mighty' or 'Rune' to see how it works.
+      <br />
+      <hr />
+      In the current iteration it makes about
+      <strong>307 fetch API requests</strong> to populate the
+      <strong>local storage</strong> with names and IDs of items. Guild Wars 2
+      API has a <strong>limit of 600 requests per minute</strong> per source, so
+      clearing the storage and cache and reloading soon after loading has
+      finished might cause it to malfunction.
+    </p>
+  );
+
   return (
     <div className="App">
       <div className="container">
@@ -106,6 +124,7 @@ function App() {
           getFromStorage={getFromStorage}
         />
         <Output output={output} />
+        <Notice text={notice} />
       </div>
     </div>
   );

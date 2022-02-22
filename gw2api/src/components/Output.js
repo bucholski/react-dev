@@ -46,7 +46,7 @@ function showInfo(e) {
               <td><img width="64" height="64" src=${data[1].icon}></td>
               <td>${data[1].level}</td>
               <td>${data[1].rarity}</td>
-              <td><a href='http://wiki.guildwars2.com/wiki/Special:Search?search=${encodeURIComponent(
+              <td><a target="_blank" href='http://wiki.guildwars2.com/wiki/Special:Search?search=${encodeURIComponent(
                 data[1].chat_link
               )}'>${data[1].chat_link}</a></td>
               <td>${

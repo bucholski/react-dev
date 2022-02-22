@@ -16,6 +16,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b main -d build -e learning_projects/rps-react-prod",
+    "help": "gh-pages ?",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
