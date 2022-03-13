@@ -1,4 +1,11 @@
+$lime-green: hsl(77, 100%, 56%);
+$tea-green: hsl(121, 17%, 53%);
+$violet: hsl(279, 41%, 92%);
+$purple-navy: hsl(260, 22%, 43%);
+$dark-violet: hsl(263, 71%, 28%);
+
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
 * {
   font-family: "Quicksand", sans-serif;
 }
@@ -13,18 +20,18 @@ p {
 
 body {
   margin: 0;
-  background-color: #665686;
+  background-color: $purple-navy;
 }
 
 .section-title {
   width: 100%;
   margin: 1em 0 1em;
   padding: 0.2em 0.5ch;
-  box-shadow: 0 5px 5px #3c157a;
+  box-shadow: 0 5px 5px $dark-violet;
   font-size: 2em;
   text-align: left;
-  background-color: #bfff1f;
-  color: #3c157a;
+  background-color: $lime-green;
+  color: $dark-violet;
 }
 
 .post-form > * {
@@ -38,8 +45,9 @@ body {
   border-radius: 4px;
   width: 90%;
   margin: 1rem 5%;
-  background-color: #ede2f3;
-  box-shadow: 3px 3px 3px #3c157a;
+
+  background-color: $violet;
+  box-shadow: 3px 3px 3px $dark-violet;
 }
 
 .post-form textarea {
@@ -48,8 +56,8 @@ body {
   margin: 1rem 5%;
   border-radius: 4px;
   font-size: 1.3rem;
-  background-color: #ede2f3;
-  box-shadow: 3px 3px 3px #3c157a;
+  background-color: $violet;
+  box-shadow: 3px 3px 3px $dark-violet;
   resize: none;
 }
 
@@ -59,10 +67,10 @@ body {
   text-indent: 1ch;
   font-size: 1.4em;
   font-weight: 600;
-  color: #bfff1f;
-  background-color: #739c73;
+  color: $lime-green;
+  background-color: $tea-green;
   border-radius: 8px;
-  box-shadow: 3px 3px 3px #3c157a;
+  box-shadow: 3px 3px 3px $dark-violet;
 }
 
 .post-form button {
@@ -72,10 +80,11 @@ body {
   border: none;
   font-size: 1.5em;
   font-weight: 600;
-  color: #3c157a;
-  background-color: #bfff1f;
+  color: $dark-violet;
+  background-color: $lime-green;
   border-radius: 9999px;
-  box-shadow: 3px 3px 3px #3c157a;
+  box-shadow: 3px 3px 3px $dark-violet;
+
   cursor: pointer;
 }
 
@@ -83,24 +92,22 @@ body {
   margin: 1em auto 0;
   padding: 1em 1rem 1rem;
   width: 80%;
-  background-color: #739c73;
+  background-color: $tea-green;
   border-radius: 8px;
-  box-shadow: 5px 5px 5px #3c157a;
+  box-shadow: 5px 5px 5px $dark-violet;
 }
 
 .post__title {
   padding-bottom: 0.5rem;
   font-size: 1.5em;
-  color: #bfff1f;
+  color: $lime-green;
 }
 
 .post__body {
   padding: 1em 1ch;
   padding-bottom: 1em;
   font-size: 1.2em;
-  color: #3c157a;
-  background-color: #bfff1f;
+  color: $dark-violet;
+  background-color: $lime-green;
   border-radius: 8px;
 }
-
-/*# sourceMappingURL=index.css.map */

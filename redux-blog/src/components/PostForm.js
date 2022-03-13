@@ -9,7 +9,6 @@ const PostForm = () => {
 
   const dispatch = useDispatch();
   const { createPost } = bindActionCreators(postActions, dispatch);
-  // console.log(postList);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,9 +21,8 @@ const PostForm = () => {
   }
 
   return (
-    <div className="post-form-wrapper">
-      <h2>Add a post</h2>
-      <hr />
+    <section className="post-form-wrapper">
+      <h2 className="section-title">Add a post</h2>
       <form
         onSubmit={handleSubmit}
         className="post-form"
@@ -49,7 +47,7 @@ const PostForm = () => {
         </label>
         <button type="submit">Post</button>
       </form>
-    </div>
+    </section>
   );
 };
 
