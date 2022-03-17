@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100vw;
+  display: block;
+}
+
+.portfolio-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr;
+}
+
+.portfolio__display {
+  grid-column: 1/4;
+  grid-row: 1/4;
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+.portfolio__description {
+  /* background-color: red; */
+  justify-self: center;
+  grid-column: 1/4;
+  grid-row: 4/5;
+}
+
+.portfolio__arrow {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  justify-self: end;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+.portfolio__arrow--next {
+  grid-column: 3/4;
+  justify-self: start;
+}
+
+.portfolio__dots {
+  display: flex;
+  justify-self: center;
+  align-self: end;
+  /* background-color: red; */
+  grid-column: 2/3;
+  grid-row: 3/4;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+.portfolio__dot {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 999vw;
+}
+
+.portfolio__dot--current {
+  background-color: black;
+}
