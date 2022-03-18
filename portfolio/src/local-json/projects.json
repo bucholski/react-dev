@@ -3,35 +3,35 @@
     "id": 1,
     "name": "Project",
     "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/square-copy.jpg",
+    "thumbnail": "/thumbnails/square-hor.jpg",
     "description": "Extremely Long description, that has to be wrapped for sure. Extremely Long description, that has to be wrapped for sure. Extremely Long description, that has to be wrapped for sure."
   },
   {
     "id": 2,
     "name": "Project",
     "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/countdown.jpg",
+    "thumbnail": "/thumbnails/count-hor.jpg",
     "description": "Foobar"
   },
   {
     "id": 3,
     "name": "Project",
     "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/rockpaper.jpg",
+    "thumbnail": "/thumbnails/rock-hor.jpg",
     "description": "Dummy Text"
   },
   {
     "id": 4,
     "name": "Project",
     "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/gw2itemsearch.jpg",
+    "thumbnail": "/thumbnails/items-hor.jpg",
     "description": "Description"
   },
   {
     "id": 5,
     "name": "Project",
     "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/reduxblog.jpg",
+    "thumbnail": "/thumbnails/blog-hor.jpg",
     "description": "A very interesting project"
   }
 ]

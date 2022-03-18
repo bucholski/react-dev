@@ -1,4 +1,7 @@
+$aspect-ratio-16-9: 0.5625;
+
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
 :root {
   --shadow-color: #ddd;
 }
@@ -8,7 +11,8 @@
   grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 2fr 1fr 2fr;
   width: min(100vw, 600px);
-  height: min(56.25vw, 337.5px);
+
+  height: min(100vw * $aspect-ratio-16-9, 600px * $aspect-ratio-16-9);
 }
 
 .portfolio__display {
@@ -16,7 +20,8 @@
   grid-column: 1/4;
   grid-row: 1/4;
   width: min(100vw, 600px);
-  height: min(56.25vw, 337.5px);
+  height: min(100vw * $aspect-ratio-16-9, 600px * $aspect-ratio-16-9);
+  // aspect-ratio: 16/9;
   overflow: hidden;
 }
 
@@ -46,10 +51,13 @@
   height: 40px;
   color: white;
   cursor: pointer;
-  filter: drop-shadow(-1px -1px 0 var(--shadow-color)) drop-shadow(1px -1px 0 var(--shadow-color)) drop-shadow(1px 1px 0 var(--shadow-color)) drop-shadow(-1px 1px 0 var(--shadow-color));
+
+  filter: drop-shadow(-1px -1px 0 var(--shadow-color))
+    drop-shadow(1px -1px 0 var(--shadow-color))
+    drop-shadow(1px 1px 0 var(--shadow-color))
+    drop-shadow(-1px 1px 0 var(--shadow-color));
   transition: all 0.3s;
 }
-
 .portfolio__arrow--next {
   grid-column: 3/4;
   justify-self: end;
@@ -86,6 +94,7 @@
   background-color: white;
   border: none;
   border-radius: 999vw;
+  // box-shadow: 0 0 0px 1px black;
   cursor: pointer;
   box-shadow: 0 2px 5px black;
   transition: background-color 0.2s;
@@ -119,14 +128,3 @@
     background-position: 50% 0%;
   }
 }
-body {
-  margin: 0;
-  font-family: "Quicksand", sans-serif;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-/*# sourceMappingURL=index.css.map */
