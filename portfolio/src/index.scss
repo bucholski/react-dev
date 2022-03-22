@@ -1,11 +1,16 @@
 @use "./portfolio";
-
-body {
+@use "./skills";
+body,
+html {
+  min-width: 280px;
   margin: 0;
   font-family: "Quicksand", sans-serif;
 }
 
-p {
+p,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }

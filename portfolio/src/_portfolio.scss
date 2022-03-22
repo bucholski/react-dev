@@ -1,43 +1,43 @@
-$aspect-ratio-16-9: 0.5625;
-
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
 
 :root {
-  --shadow-color: #ddd;
+  --img-index: 0;
 }
 
 .portfolio-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 2fr 1fr 2fr;
-  width: min(100vw, 600px);
-
-  height: min(100vw * $aspect-ratio-16-9, 600px * $aspect-ratio-16-9);
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolio__display {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr;
+
   position: relative;
-  grid-column: 1/4;
-  grid-row: 1/4;
-  width: min(100vw, 600px);
-  height: min(100vw * $aspect-ratio-16-9, 600px * $aspect-ratio-16-9);
-  // aspect-ratio: 16/9;
+  // width: clamp(280px, 100vw, 800px);
+  width: clamp(280px, 100%, 1000px);
+  aspect-ratio: 16/9;
   overflow: hidden;
 }
 
-.portfolio__display img {
-  display: block;
-  width: inherit;
-  height: inherit;
-  object-fit: cover;
-  object-position: left top;
+.portfolio__slider {
+  display: flex;
+  transform: translateX(calc(-100% * var(--img-index)));
+  transition: transform 0.2s;
+  grid-column: 1/4;
+  grid-row: 1/4;
 }
 
-.portfolio__description {
-  /* background-color: red; */
-  justify-self: center;
-  grid-column: 1/4;
-  grid-row: 4/5;
+.portfolio__display img {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: left top;
 }
 
 .portfolio__arrow {
@@ -48,14 +48,11 @@ $aspect-ratio-16-9: 0.5625;
   border: none;
   padding: 0;
   margin: 0;
-  height: 40px;
+  // padding-top: 20%;
+  height: 100%;
   color: white;
   cursor: pointer;
-
-  filter: drop-shadow(-1px -1px 0 var(--shadow-color))
-    drop-shadow(1px -1px 0 var(--shadow-color))
-    drop-shadow(1px 1px 0 var(--shadow-color))
-    drop-shadow(-1px 1px 0 var(--shadow-color));
+  z-index: 1;
   transition: all 0.3s;
 }
 .portfolio__arrow--next {
@@ -63,37 +60,31 @@ $aspect-ratio-16-9: 0.5625;
   justify-self: end;
 }
 
-.portfolio__arrow:hover {
-  --shadow-color: black;
-}
-
-.portfolio__arrow:hover svg {
-  transition: all 0.3s;
-}
-
-.portfolio__arrow:hover svg {
-  stroke: white;
+.portfolio__arrow svg {
+  width: clamp(30px, 10vw, 80px);
+  height: clamp(30px, 10vw, 80px);
 }
 
 .portfolio__dots {
   display: flex;
-  position: absolute;
+  // position: absolute;
   justify-self: center;
   align-self: end;
-  /* background-color: red; */
-  grid-column: 2/3;
+  // background-color: red;
+  grid-column: 1/4;
   grid-row: 3/4;
   margin-bottom: 10px;
   gap: clamp(10px, 4vw, 20px);
+  z-index: 1;
 }
 
 .portfolio__dot {
   display: inline-block;
-  height: clamp(8px, 5vw, 15px);
-  width: clamp(8px, 5vw, 15px);
+  height: clamp(4px, 6vw, 15px);
+  width: clamp(4px, 6vw, 15px);
   background-color: white;
   border: none;
-  border-radius: 999vw;
+  border-radius: 9999vw;
   // box-shadow: 0 0 0px 1px black;
   cursor: pointer;
   box-shadow: 0 2px 5px black;
@@ -104,27 +95,26 @@ $aspect-ratio-16-9: 0.5625;
   background-color: #aaa;
 }
 
-.portfolio__dot--current {
+.portfolio__dot--current,
+.portfolio__dot--current:hover {
   background-color: black;
   cursor: default;
 }
 
-.portfolio__cover {
-  position: absolute;
-  inset: 0 0 0 0;
-  background: linear-gradient(to top, #ccc 10%, rgba(0, 0, 0, 0) 90%);
-  background-size: 100% 1000%;
+.portfolio__description {
+  padding: 0 1ch;
+  display: block;
+  min-height: 10em;
+  // width: 50%;
+  // text-indent: 1ch;
 }
 
-.portfolio__cover--animate {
-  animation: bg-pan-left 0.4s ease-in-out;
-}
-
-@keyframes bg-pan-left {
-  0% {
-    background-position: 50% 100%;
+@media only screen and (min-width: 1000px) {
+  .portfolio-wrapper {
+    flex-direction: row;
   }
-  100% {
-    background-position: 50% 0%;
+
+  .portfolio__display {
+    width: clamp(800px, 70%, 2000px);
   }
 }
