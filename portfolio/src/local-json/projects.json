@@ -1,37 +1,52 @@
 [
   {
     "id": 1,
-    "name": "Project",
-    "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/square-hor.jpg",
-    "description": "Extremely Long description, that has to be wrapped for sure. Extremely Long description, that has to be wrapped for sure. Extremely Long description, that has to be wrapped for sure."
+    "name": "Square copy",
+    "url": "https://bucholski.github.io/learning_projects/square_copy/",
+    "git": "https://github.com/bucholski/bucholski.github.io/tree/main/learning_projects/square_copy",
+    "thumbnail_hor": "square-hor.jpg",
+    "thumbnail_ver": "square-ver.jpg",
+    "description": "<p> My first project ever! A copy of square.com. Made to test what I can achieve before taking on a framework. I focused on copying main layout and interactive elements with pop-up menus and such. <p><p> I'm especially proud of the double dropdown menu and grid layout mimicing the collage made with several photos in the original</p>",
+    "tech": ["HTML5", "CSS3", "JS"]
   },
   {
     "id": 2,
-    "name": "Project",
-    "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/count-hor.jpg",
-    "description": "Foobar"
+    "name": "Countdown",
+    "url": "https://bucholski.github.io/learning_projects/countdown/",
+    "git": "https://github.com/bucholski/bucholski.github.io/tree/main/learning_projects/countdown",
+    "thumbnail_hor": "count-hor.jpg",
+    "thumbnail_ver": "count-ver.jpg",
+    "description": "<p>Launch countdown timer - a Frontend Mentor challenge.</p> <p> Used SCSS and BEM for the first time with this one, liked it, continued using it in all of my further projects. Taught me a lot about working with time and dates in JS.</p>",
+    "tech": ["HTML5", "CSS3", "JS", "SCSS", "BEM"]
   },
   {
     "id": 3,
-    "name": "Project",
-    "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/rock-hor.jpg",
-    "description": "Dummy Text"
+    "name": "Rock Paper Scissors",
+    "url": "https://bucholski.github.io/learning_projects/rps-react-prod/",
+    "git": "https://github.com/bucholski/react-dev/tree/main/rps-react",
+    "thumbnail_hor": "rock-hor.jpg",
+    "thumbnail_ver": "rock-ver.jpg",
+    "description": "<p>Rock, Paper, Scissors game - another challenge by Frontend Mentor</p> <p>This one really made me explore CSS, especially <code>transform</code> and <code>transition</code> properties.</p>",
+    "tech": ["HTML5", "CSS3", "JS", "React"]
   },
   {
     "id": 4,
-    "name": "Project",
-    "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/items-hor.jpg",
-    "description": "Description"
+    "name": "Guild Wars 2 Item Search",
+    "url": "https://bucholski.github.io/learning_projects/gw2-item-search/",
+    "git": "https://github.com/bucholski/react-dev/tree/main/gw2api",
+    "thumbnail_hor": "items-hor.jpg",
+    "thumbnail_ver": "items-ver.jpg",
+    "description": "<p>Item searching tool for Guild Wars 2. Basically an excuse to learn how to work with API and local storage.</p> <p>Taught me a lot about asynchronous JS, and how reading a very short documentation (of the API in this case) can save you hours of bug fixing.</p>",
+    "tech": ["HTML5", "CSS3", "JS", "React", "Fetch API"]
   },
   {
     "id": 5,
-    "name": "Project",
-    "url": "http://www.bucholski.github.io",
-    "thumbnail": "/thumbnails/blog-hor.jpg",
-    "description": "A very interesting project"
+    "name": "Redux 'blog'",
+    "url": "https://bucholski.github.io/learning_projects/redux-blog/",
+    "git": "https://github.com/bucholski/react-dev/tree/main/redux-blog",
+    "thumbnail_hor": "blog-hor.jpg",
+    "thumbnail_ver": "blog-ver.jpg",
+    "description": "<p>A simple fake blog-like feature, made just to learn Redux. Uses <a href='https://jsonplaceholder.typicode.com' target='_blank'>jsonplaceholder</a> api.</p><p>I have spent way too much time trying to learn Redux from tutorials, instead of going straight to the documentation, which has a really approachable <a href='https://react-redux.js.org/tutorials/quick-start' target='_blank'>quick start guide</a>. The more I know.</p>",
+    "tech": ["HTML5", "CSS3", "JS", "React", "Redux"]
   }
 ]

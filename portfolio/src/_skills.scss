@@ -1,8 +1,29 @@
-.skills {
-  fill: black;
+@import "./variables";
+
+.skills-section {
+  padding-top: 1em;
+  padding-bottom: 3em;
+  background-color: $bg-dark;
+  color: $font-light;
 }
 
-.skills__item {
-  width: 10%;
-  height: 10%;
+.skills {
+  display: flex;
+  // align-items: center;
+  flex-wrap: wrap;
+  gap: 5ch;
+  justify-content: center;
+  margin: 0 auto;
+  fill: black;
+  // width: 100%;
+}
+
+.skills__icon svg {
+  height: clamp(50px, 10vw, 100px);
+  fill: $font-light;
+}
+
+.skills__description {
+  margin: 0 auto;
+  text-align: center;
 }

@@ -1,0 +1,32 @@
+@import "./variables";
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding-bottom: 1rem;
+}
+
+footer p {
+  padding-bottom: 1rem;
+}
+
+.social__item {
+  fill: white;
+  height: 50px;
+  width: 50px;
+}
+
+.mail svg {
+  display: inline;
+  height: 0.9em;
+  padding: 0 0.5ch;
+  // width: 2ch;
+  fill: white;
+}

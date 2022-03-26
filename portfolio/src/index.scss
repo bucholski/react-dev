@@ -1,10 +1,20 @@
 @use "./portfolio";
 @use "./skills";
+@use "./header";
+@use "./round-a-btn";
+@use "./about";
+@use "./footer";
+@import "./variables";
+
 body,
 html {
   min-width: 280px;
   margin: 0;
   font-family: "Quicksand", sans-serif;
+}
+
+a {
+  color: inherit;
 }
 
 p,
@@ -13,4 +23,48 @@ h2,
 h3 {
   margin: 0;
   padding: 0;
+}
+
+h2 {
+  padding: 1em 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+header,
+footer,
+section {
+  --padding: clamp(20px, 3vw, 100px);
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+
+  // border: 1px solid red;
+}
+
+section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+// .dark-style {
+//   background-color: $bg-dark;
+//   color: $font-light;
+// }
+
+// .light-style {
+//   background-color: $bg-light;
+//   color: $font-dark;
+// }
+.App > *:nth-child(odd) {
+  background-color: $bg-dark;
+  color: $font-light;
+}
+
+.App > *:nth-child(even) {
+  background-color: $bg-light;
+  color: $font-dark;
+}
+
+.bigger-text {
+  font-size: 2em;
+  font-weight: 600;
 }

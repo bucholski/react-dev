@@ -1,0 +1,40 @@
+@import "./variables";
+
+.round-a-btn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  height: 3em;
+  width: 3em;
+  border: 3px solid $font-light;
+  border-radius: 999px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  background-color: $bg-dark;
+  fill: $font-light;
+  box-shadow: 5px 0px 3px black;
+}
+
+.round-a-btn span {
+  position: absolute;
+  background-color: $bg-dark;
+  bottom: -1em;
+  width: 100%;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  border-bottom: 3px solid $font-light;
+  border-left: 3px solid $font-light;
+  border-right: 3px solid $font-light;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 5px 5px 3px black;
+}
+
+.round-a-btn svg {
+  width: 2em;
+}
