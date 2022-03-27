@@ -36,7 +36,7 @@
     "git": "https://github.com/bucholski/react-dev/tree/main/gw2api",
     "thumbnail_hor": "items-hor.jpg",
     "thumbnail_ver": "items-ver.jpg",
-    "description": "<p>Item searching tool for Guild Wars 2. Basically an excuse to learn how to work with API and local storage.</p> <p>Taught me a lot about asynchronous JS, and how reading a very short documentation (of the API in this case) can save you hours of bug fixing.</p>",
+    "description": "<p>Item searching tool for Guild Wars 2. Basically an excuse to learn how to work with API and local storage.</p> <p>Taught me a lot about asynchronous JS and writing sensible API requests</p>",
     "tech": ["HTML5", "CSS3", "JS", "React", "Fetch API"]
   },
   {
@@ -46,7 +46,7 @@
     "git": "https://github.com/bucholski/react-dev/tree/main/redux-blog",
     "thumbnail_hor": "blog-hor.jpg",
     "thumbnail_ver": "blog-ver.jpg",
-    "description": "<p>A simple fake blog-like feature, made just to learn Redux. Uses <a href='https://jsonplaceholder.typicode.com' target='_blank'>jsonplaceholder</a> api.</p><p>I have spent way too much time trying to learn Redux from tutorials, instead of going straight to the documentation, which has a really approachable <a href='https://react-redux.js.org/tutorials/quick-start' target='_blank'>quick start guide</a>. The more I know.</p>",
+    "description": "<p>A simple fake blog-like feature, made just to learn Redux. Uses <a href='https://jsonplaceholder.typicode.com' target='_blank'>jsonplaceholder</a> api.</p><p>This one taught me that <a href='https://react-redux.js.org/tutorials/quick-start' target='_blank'>the official documentation</a> should be the first go-to place when learning a new technology.</p>",
     "tech": ["HTML5", "CSS3", "JS", "React", "Redux"]
   }
 ]
