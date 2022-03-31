@@ -248,6 +248,16 @@ header {
   margin-bottom: 1rem;
 }
 
+.bigger-text {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.big-text {
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 2.5rem;
@@ -329,6 +339,10 @@ section {
 .bigger-text {
   font-size: 2em;
   font-weight: 600;
+}
+
+.big-text {
+  font-size: 1.3em;
 }
 
 /*# sourceMappingURL=index.css.map */

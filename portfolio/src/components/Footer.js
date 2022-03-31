@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <a
-        class="mail"
+        className="mail"
         href="mailto:bucholskim@gmail.com"
         target="_blank"
         rel="noopener"
