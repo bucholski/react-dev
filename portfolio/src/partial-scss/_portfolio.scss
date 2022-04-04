@@ -1,0 +1,159 @@
+@use "./variables" as *;
+
+$font-color: $font-dark;
+$font-rev: $font-light;
+$bg-color: $bg-light;
+$bg-rev: $bg-dark;
+
+.flex-box {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  background-color: $bg-dark;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px $bg-dark;
+}
+
+.portfolio__item {
+  display: block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-color: inherit;
+  width: 100%;
+  // margin-left: -5px;
+  // border-top: 5px solid black;
+  // border-bottom: 5px solid black;
+  overflow: hidden;
+  max-height: clamp(10px, 30vw, 400px);
+  transition: all 0.2s;
+  border-radius: 8px;
+  position: relative;
+}
+
+.portfolio__item--active {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+  max-width: inherit;
+  max-height: 80vh;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.portfolio__a-buttons {
+  display: flex;
+  gap: 1ch;
+  grid-column: 3/4;
+  grid-row: 1/2;
+  align-self: start;
+  margin: 1ch;
+  z-index: 1;
+}
+
+// .grid-item--active:before {
+//   position: absolute;
+//   content: "";
+//   inset: 0 0 0 0;
+//   background-color: rgb(0, 0, 0, 0.5);
+//   z-index: -1;
+// }
+
+.portfolio__item img {
+  display: block;
+  width: calc(100% - 5px);
+  object-fit: cover;
+  //a hacky way to get gap that minimizes along with the flex item
+  border-left: 5px;
+  border-radius: 8px;
+}
+
+.portfolio__description {
+  margin: 1.5rem auto 0;
+  width: 90%;
+  max-width: 900px;
+  border: 5px solid $bg-color;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: $bg-rev;
+  box-shadow: 5px 5px $bg-color;
+}
+
+.portfolio__description-text {
+  font-size: 18px;
+  overflow: auto;
+}
+
+.portfolio__description-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.portfolio__techbox {
+  margin: 1ch 1ch 0ch 0;
+  padding: 1ch 1em;
+  // border: 3px solid black;
+  border-radius: 99vw;
+  background-color: $bg-color;
+  color: $font-color;
+  font-weight: 600;
+}
+
+.portfolio__buttons {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  gap: 10px;
+  display: flex;
+  // display: none;
+  // visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.3s;
+}
+
+.portfolio__item--active .portfolio__buttons,
+.portfolio__item--active .portfolio__back {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.portfolio__back {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5%;
+  left: 5%;
+  height: 2.2rem;
+  width: 2.2rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.3s;
+  // padding: -2px;
+  border: 3px solid $bg-color;
+  background-color: $bg-rev;
+  border-radius: 999px;
+  // box-sizing: border-box;
+  box-shadow: 4px 4px 3px black;
+}
+
+.portfolio__back svg {
+  fill: $bg-color !important;
+  width: 70%;
+  // height: 100%;
+}
+@media only screen and (min-width: 500px) {
+  .portfolio__item {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+}

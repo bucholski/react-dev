@@ -1,68 +1,40 @@
-:root {
-  --img-index: 0;
-}
-
-.portfolio {
+.flex-box {
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 2em;
-  gap: 1ch;
-}
-
-.portfolio__display {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 2fr 1fr 2fr;
-  position: relative;
-  width: clamp(250px, 100%, 1200px);
-  aspect-ratio: 11/16;
-  margin-bottom: 1em;
-  border: 5px solid #020202;
-  background-color: #020202;
-  overflow: hidden;
-  border-radius: 8px;
-  box-sizing: content-box;
-  box-shadow: 5px 5px black;
-}
-
-.portfolio__slider {
-  display: flex;
-  transform: translateX(calc(-100% * var(--img-index)));
-  transition: transform 0.2s;
-  grid-column: 1/4;
-  grid-row: 1/4;
-}
-
-.portfolio__display img,
-.portfolio__display picture {
-  flex-grow: 0;
-  flex-shrink: 0;
-  display: block;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
   width: 100%;
-  aspect-ratio: 11/16;
-  object-fit: cover;
-  object-position: left top;
+  height: 100%;
+  max-width: 1000px;
+  background-color: #020202;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px #020202;
 }
 
-.portfolio__arrow {
-  grid-column: 1/2;
-  grid-row: 2/3;
-  justify-self: start;
-  background-color: transparent;
-  border: none;
+.portfolio__item {
+  display: block;
+  border: 0;
   padding: 0;
   margin: 0;
-  height: 100%;
-  cursor: pointer;
-  z-index: 1;
-  filter: drop-shadow(5px 5px 2px black);
+  background-color: inherit;
+  width: 100%;
+  overflow: hidden;
+  max-height: clamp(10px, 30vw, 400px);
+  transition: all 0.2s;
+  border-radius: 8px;
+  position: relative;
 }
 
-.portfolio__arrow--next {
-  grid-column: 3/4;
-  justify-self: end;
+.portfolio__item--active {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+  max-width: inherit;
+  max-height: 80vh;
+  border-radius: 8px;
+  transition: all 0.2s;
 }
 
 .portfolio__a-buttons {
@@ -75,62 +47,28 @@
   z-index: 1;
 }
 
-.portfolio__arrow svg {
-  width: clamp(30px, 10vw, 80px);
-  height: clamp(30px, 10vw, 80px);
-}
-
-.portfolio__dots {
-  display: flex;
-  justify-self: center;
-  align-self: end;
-  grid-column: 1/4;
-  grid-row: 3/4;
-  margin-bottom: 10px;
-  gap: clamp(10px, 4vw, 20px);
-  z-index: 1;
-}
-
-.portfolio__dot {
-  display: inline-block;
-  height: clamp(4px, 6vw, 15px);
-  width: clamp(4px, 6vw, 15px);
-  background-color: #efefef;
-  border: none;
-  border-radius: 9999vw;
-  cursor: pointer;
-  box-shadow: 0 2px 5px black;
-  transition: background-color 0.2s;
-}
-
-.portfolio__dot:hover {
-  background-color: #aaa;
-}
-
-.portfolio__dot--current,
-.portfolio__dot--current:hover {
-  background-color: black;
-  cursor: default;
+.portfolio__item img {
+  display: block;
+  width: calc(100% - 5px);
+  object-fit: cover;
+  border-left: 5px;
+  border-radius: 8px;
 }
 
 .portfolio__description {
-  border: 5px solid black;
-  width: 100%;
+  margin: 1.5rem auto 0;
+  width: 90%;
+  max-width: 900px;
+  border: 5px solid #efefef;
   border-radius: 8px;
-  background-color: #efefef;
-  box-shadow: 5px 5px black;
+  padding: 1rem;
+  background-color: #020202;
+  box-shadow: 5px 5px #efefef;
+}
+
+.portfolio__description-text {
   font-size: 18px;
   overflow: auto;
-}
-
-.portfolio__description p {
-  margin: 0.8em 1ch;
-  color: #020202;
-}
-
-.portfolio__description-text span {
-  display: block;
-  margin-bottom: 1em;
 }
 
 .portfolio__description-boxes {
@@ -140,36 +78,59 @@
 }
 
 .portfolio__techbox {
-  margin: 0ch 1ch 1ch;
+  margin: 1ch 1ch 0ch 0;
   padding: 1ch 1em;
   border-radius: 99vw;
+  background-color: #efefef;
+  color: #020202;
+  font-weight: 600;
+}
+
+.portfolio__buttons {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  gap: 10px;
+  display: flex;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.3s;
+}
+
+.portfolio__item--active .portfolio__buttons,
+.portfolio__item--active .portfolio__back {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.portfolio__back {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5%;
+  left: 5%;
+  height: 2.2rem;
+  width: 2.2rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s, transform 0.3s;
+  border: 3px solid #efefef;
   background-color: #020202;
-  color: #efefef;
+  border-radius: 999px;
+  box-shadow: 4px 4px 3px black;
+}
+
+.portfolio__back svg {
+  fill: #efefef !important;
+  width: 70%;
 }
 
 @media only screen and (min-width: 500px) {
-  .portfolio__display {
+  .portfolio__item {
+    width: 100%;
     aspect-ratio: 16/9;
-  }
-
-  .portfolio__display img,
-.portfolio__display picture {
-    aspect-ratio: 16/9;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .portfolio {
-    flex-direction: row;
-    align-items: stretch;
-  }
-
-  .portfolio__display {
-    width: clamp(700px, 65vw, 1000px);
-    margin-bottom: 3em;
-  }
-
-  .portfolio__description {
-    height: calc(clamp(700px, 65vw, 1000px) * 0.5625);
   }
 }
 .skills-section {
@@ -236,8 +197,9 @@ header {
   box-shadow: 5px 5px 3px black;
 }
 
-.round-a-btn svg {
+a.round-a-btn svg {
   width: 2em;
+  fill: #efefef !important;
 }
 
 .about {
@@ -258,6 +220,12 @@ header {
   line-height: 1.5em;
 }
 
+@media only screen and (max-width: 350px) {
+  p.bigger-text {
+    letter-spacing: -3px;
+    font-size: 1.8em;
+  }
+}
 footer {
   padding-top: 3rem;
   padding-bottom: 2.5rem;
@@ -276,7 +244,6 @@ footer p {
 }
 
 .social__item {
-  fill: white;
   height: 50px;
   width: 50px;
 }
@@ -285,14 +252,16 @@ footer p {
   display: inline;
   height: 0.9em;
   padding: 0 0.5ch;
-  fill: white;
+}
+
+* {
+  font-family: "Quicksand", sans-serif;
 }
 
 body,
 html {
   min-width: 280px;
   margin: 0;
-  font-family: "Quicksand", sans-serif;
 }
 
 a {
@@ -331,9 +300,17 @@ section {
   color: #efefef;
 }
 
+.App > *:nth-child(odd) svg {
+  fill: #efefef;
+}
+
 .App > *:nth-child(even) {
   background-color: #efefef;
   color: #020202;
+}
+
+.App > *:nth-child(even) svg {
+  fill: #020202;
 }
 
 .bigger-text {
@@ -343,6 +320,13 @@ section {
 
 .big-text {
   font-size: 1.3em;
+}
+
+@media only screen and (min-width: 1000px) {
+  .high-width-center {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

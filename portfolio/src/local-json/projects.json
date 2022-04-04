@@ -27,7 +27,7 @@
     "thumbnail_hor": "rock-hor.jpg",
     "thumbnail_ver": "rock-ver.jpg",
     "description": "<p>Rock, Paper, Scissors game - another challenge by Frontend Mentor</p> <p>This one really made me explore CSS, especially <code>transform</code> and <code>transition</code> properties.</p>",
-    "tech": ["HTML5", "CSS3", "JS", "React"]
+    "tech": ["SCSS", "BEM", "React"]
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "thumbnail_hor": "items-hor.jpg",
     "thumbnail_ver": "items-ver.jpg",
     "description": "<p>Item searching tool for Guild Wars 2. Basically an excuse to learn how to work with API and local storage.</p> <p>Taught me a lot about asynchronous JS and writing sensible API requests</p>",
-    "tech": ["HTML5", "CSS3", "JS", "React", "Fetch API"]
+    "tech": ["SCSS", "BEM", "React", "Fetch API", "localStorage"]
   },
   {
     "id": 5,
@@ -47,6 +47,6 @@
     "thumbnail_hor": "blog-hor.jpg",
     "thumbnail_ver": "blog-ver.jpg",
     "description": "<p>A simple fake blog-like feature, made just to learn Redux. Uses <a href='https://jsonplaceholder.typicode.com' target='_blank'>jsonplaceholder</a> api.</p><p>This one taught me that <a href='https://react-redux.js.org/tutorials/quick-start' target='_blank'>the official documentation</a> should be the first go-to place when learning a new technology.</p>",
-    "tech": ["HTML5", "CSS3", "JS", "React", "Redux"]
+    "tech": ["SCSS", "BEM", "React", "Redux"]
   }
 ]

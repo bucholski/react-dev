@@ -1,4 +1,4 @@
-@import "./variables";
+@use "./variables" as *;
 
 .about {
   font-size: 1.5em;
@@ -16,4 +16,11 @@
 .big-text {
   font-size: 1.3em;
   line-height: 1.5em;
+}
+
+@media only screen and (max-width: 350px) {
+  p.bigger-text {
+    letter-spacing: -3px;
+    font-size: 1.8em;
+  }
 }

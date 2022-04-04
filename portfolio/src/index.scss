@@ -1,16 +1,19 @@
-@use "./portfolio";
-@use "./skills";
-@use "./header";
-@use "./round-a-btn";
-@use "./about";
-@use "./footer";
-@import "./variables";
+@use "./partial-scss/portfolio";
+@use "./partial-scss/skills";
+@use "./partial-scss/header";
+@use "./partial-scss/round-a-btn";
+@use "./partial-scss/about";
+@use "./partial-scss/footer";
+@use "./partial-scss/variables" as *;
+
+* {
+  font-family: "Quicksand", sans-serif;
+}
 
 body,
 html {
   min-width: 280px;
   margin: 0;
-  font-family: "Quicksand", sans-serif;
 }
 
 a {
@@ -58,10 +61,16 @@ section {
   background-color: $bg-dark;
   color: $font-light;
 }
-
+.App > *:nth-child(odd) svg {
+  fill: $font-light;
+}
 .App > *:nth-child(even) {
   background-color: $bg-light;
   color: $font-dark;
+}
+
+.App > *:nth-child(even) svg {
+  fill: $font-dark;
 }
 
 .bigger-text {
@@ -71,4 +80,11 @@ section {
 
 .big-text {
   font-size: 1.3em;
+}
+
+@media only screen and (min-width: 1000px) {
+  .high-width-center {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }

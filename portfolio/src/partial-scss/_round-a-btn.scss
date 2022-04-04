@@ -1,4 +1,4 @@
-@import "./variables";
+@use "./variables" as *;
 
 .round-a-btn {
   display: flex;
@@ -35,6 +35,8 @@
   box-shadow: 5px 5px 3px black;
 }
 
-.round-a-btn svg {
+a.round-a-btn svg {
   width: 2em;
+  //overriding global setting from index.scss somcing from even/odd elements
+  fill: $font-light !important;
 }

@@ -1,4 +1,4 @@
-@import "./variables";
+@use "./variables" as *;
 
 :root {
   --img-index: 0;
@@ -75,16 +75,6 @@
   justify-self: end;
 }
 
-.portfolio__a-buttons {
-  display: flex;
-  gap: 1ch;
-  grid-column: 3/4;
-  grid-row: 1/2;
-  align-self: start;
-  margin: 1ch;
-  z-index: 1;
-}
-
 .portfolio__arrow svg {
   width: clamp(30px, 10vw, 80px);
   height: clamp(30px, 10vw, 80px);
@@ -134,12 +124,6 @@
   box-shadow: 5px 5px black;
   font-size: 18px;
   overflow: auto;
-}
-
-.portfolio__description p {
-  margin: 0.8em 1ch;
-  // line-height: 1.3em;
-  color: $font-dark;
 }
 
 .portfolio__description-text span {
